@@ -9,7 +9,7 @@
         },
         "storageAccountName": {
             "type": "string",
-            "defaultValue": "[variables('storageAccountName')]"
+            
         },
         "accountType": {
             "type": "string",
