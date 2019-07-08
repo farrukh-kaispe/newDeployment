@@ -149,8 +149,8 @@
             "properties": {
                 "iotHubs": [
                     {
-                        "name": "iotHubName",
-                        "connectionString": "",
+                        "name": "[variables('iotHubName')]",
+                        
                         "location": "eastasia"
                     }
                 ]
