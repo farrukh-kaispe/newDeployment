@@ -18,7 +18,7 @@
             "value": "Hot"
         },
         "supportsHttpsTrafficOnly": {
-            "value": false
+            "value": true
         }
     }
 }

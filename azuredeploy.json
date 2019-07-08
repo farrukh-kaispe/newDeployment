@@ -22,7 +22,7 @@
         },
         "supportsHttpsTrafficOnly": {
             "type": "bool",
-            "defaultValue": "false"
+            "defaultValue": "true"
         }
     },
     "variables": {
