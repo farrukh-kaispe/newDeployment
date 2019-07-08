@@ -25,7 +25,12 @@
     "variables": {
         "storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]",
         "iotHubName": "[concat('iotHub', uniqueString(resourceGroup().id))]",
-        "dpsServiceName": "[concat('dpsService', uniqueString(resourceGroup().id))]"
+        "dpsServiceName": "[concat('dpsService', uniqueString(resourceGroup().id))]",
+
+        "iotHubResourceId": "[resourceId('Microsoft.Devices/Iothubs', variables('iotHubName'))]",
+        "iotHubKeyName": "iothubowner",
+        "iotHubKeyResource": "[resourceId('Microsoft.Devices/Iothubs/Iothubkeys', variables('iotHubName'), variables('iotHubKeyName'))]"
+    
     },
     "resources": [
         {
@@ -150,11 +155,12 @@
                 "iotHubs": [
                     {
                         "name": "[variables('iotHubName')]",
-                        
+                        "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
                         "location": "eastasia"
                     }
                 ]
-            }
+            },
+            "dependsOn": ["[variables('iotHubName')]"]
         }
         
     ],
