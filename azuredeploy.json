@@ -8,8 +8,8 @@
             
         },
         "storageAccountName": {
-            "type": "string",
-            "defaultValue":"[concat(uniqueString(subscription().subscriptionId))]"
+            "type": "string"
+            
             
         },
         "accountType": {
@@ -31,7 +31,7 @@
     },
     "resources": [
         {
-            "name": "[parameters('storageAccountName')]",
+            "name": "[variables('storageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2018-07-01",
             "location": "[parameters('location')]",
