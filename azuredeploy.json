@@ -150,6 +150,7 @@
                 "iotHubs": [
                     {
                         "name": "iotHubName",
+                        "connectionString": "",
                         "location": "eastasia"
                     }
                 ]
