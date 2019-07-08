@@ -35,13 +35,11 @@
                 
                
             },
-            "dependsOn": [],
-            "sku": {
-                "name": "[parameters('accountType')]"
-            },
-            "kind": "[parameters('kind')]"
-        },
-            {
+            "dependsOn": []
+
+             },
+            
+             {
             "name": "[variables('iotHubName')]",
             "type": "Microsoft.Devices/IotHubs",
             "apiVersion": "2018-04-01",
