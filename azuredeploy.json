@@ -7,11 +7,7 @@
             "defaultValue": "eastasia"
             
         },
-        "storageAccountName": {
-            "type": "string"
-            
-            
-        },
+        
         "accountType": {
             "type": "string",
             "defaultValue": "Standard_RAGRS"
