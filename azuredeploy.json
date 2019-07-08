@@ -24,7 +24,8 @@
     },
     "variables": {
         "storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]",
-        "iotHubName": "[concat('iotHub', uniqueString(resourceGroup().id))]"
+        "iotHubName": "[concat('iotHub', uniqueString(resourceGroup().id))]",
+        "dpsServiceName": "[concat('dpsService', uniqueString(resourceGroup().id))]"
     },
     "resources": [
         {
@@ -132,6 +133,27 @@
                 "features": "None"
             }
         
+        },
+        
+        
+        {
+            "type": "Microsoft.Devices/provisioningServices",
+            "apiVersion": "2017-11-15",
+            "name": "[variables('dpsServiceName')]",
+            "location": "eastasia",
+            "sku": {
+                "name": "S1",
+                "tier": "Standard",
+                "capacity": 1
+            },
+            "properties": {
+                "iotHubs": [
+                    {
+                        "name": "iotHubName",
+                        "location": "eastasia"
+                    }
+                ]
+            }
         }
         
     ],
