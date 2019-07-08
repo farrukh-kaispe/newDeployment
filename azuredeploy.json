@@ -6,20 +6,8 @@
             "type": "string",
             "defaultValue": "eastasia"
             
-        },
-        
-        "accountType": {
-            "type": "string",
-            "defaultValue": "Standard_RAGRS"
-        },
-        "kind": {
-            "type": "string",
-            "defaultValue": "StorageV2"
-        },
-        "accessTier": {
-            "type": "string",
-            "defaultValue": "Hot"
         }
+        
         
     },
     "variables": {
@@ -39,7 +27,12 @@
             "apiVersion": "2018-07-01",
             "location": "[parameters('location')]",
             "properties": {
-                "accessTier": "[parameters('accessTier')]"
+                "accountType": "Standard_RAGRS",
+                "kind": "StorageV2",
+                "accessTier":"Hot"
+                
+
+                
                
             },
             "dependsOn": [],
