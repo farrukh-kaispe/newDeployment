@@ -4,6 +4,13 @@
     "parameters": {
         "location": {
             "type": "string",
+            "allowedValues": [
+                "East Asia",
+                "Central US",
+                "East US",
+                "West US",
+                "Southeast Asia"
+              ],
             "defaultValue": "eastasia"
             
         }
