@@ -33,7 +33,7 @@
             "apiVersion": "2018-07-01",
             "location": "[parameters('location')]",
             "properties": {
-                "accessTier": "[parameters('accessTier')]",
+                "accessTier": "[parameters('accessTier')]"
                
             },
             "dependsOn": [],
