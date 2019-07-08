@@ -27,16 +27,16 @@
             "name": "[variables('storageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2018-07-01",
-            "location": "[variables('location')]",
+            "location": "[parameters('location')]",
             "properties": {
-                "accessTier": "[variables('accessTier')]",
-                "supportsHttpsTrafficOnly": "[variables('supportsHttpsTrafficOnly')]"
+                "accessTier": "[parameters('accessTier')]",
+                "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
             },
             "dependsOn": [],
             "sku": {
-                "name": "[variables('accountType')]"
+                "name": "[parameters('accountType')]"
             },
-            "kind": "[variables('kind')]"
+            "kind": "[parameters('kind')]"
         }
     ],
     "outputs": {}
