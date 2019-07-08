@@ -7,10 +7,7 @@
             "defaultValue": "eastasia"
             
         },
-        "storageAccountName": {
-            "type": "string"
-            
-        },
+        
         "accountType": {
             "type": "string",
             "defaultValue": "Standard_RAGRS"
@@ -22,8 +19,11 @@
         "accessTier": {
             "type": "string",
             "defaultValue": "Hot"
+        },
+        "supportsHttpsTrafficOnly": {
+            "type": "bool",
+            "defaultValue": "false"
         }
-        
     },
     "variables": {
         "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
@@ -35,8 +35,9 @@
             "apiVersion": "2018-07-01",
             "location": "[parameters('location')]",
             "properties": {
-                "accessTier": "[parameters('accessTier')]"
-                 },
+                "accessTier": "[parameters('accessTier')]",
+                "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
+            },
             "dependsOn": [],
             "sku": {
                 "name": "[parameters('accountType')]"
