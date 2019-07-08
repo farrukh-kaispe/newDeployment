@@ -6,7 +6,7 @@
             "value": "eastasia"
         },
         "storageAccountName": {
-            "value": "kspstorage001"
+            "value": null
         },
         "accountType": {
             "value": "Standard_RAGRS"
