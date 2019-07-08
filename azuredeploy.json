@@ -7,10 +7,7 @@
             "defaultValue": "eastasia"
             
         },
-        "storageAccountName": {
-            "type": "string"
-            
-        },
+        
         "accountType": {
             "type": "string",
             "defaultValue": "Standard_RAGRS"
@@ -22,10 +19,6 @@
         "accessTier": {
             "type": "string",
             "defaultValue": "Hot"
-        },
-        "supportsHttpsTrafficOnly": {
-            "type": "bool",
-            "defaultValue": "true"
         }
     },
     "variables": {
@@ -33,13 +26,13 @@
     },
     "resources": [
         {
-            "name": "[variables('storageAccountName')]",
+            "name": "[parameters('storageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2018-07-01",
             "location": "[parameters('location')]",
             "properties": {
                 "accessTier": "[parameters('accessTier')]",
-                "supportsHttpsTrafficOnly": "[parameters('supportsHttpsTrafficOnly')]"
+               
             },
             "dependsOn": [],
             "sku": {
