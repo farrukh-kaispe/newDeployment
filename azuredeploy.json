@@ -22,11 +22,8 @@
         "accessTier": {
             "type": "string",
             "defaultValue": "Hot"
-        },
-        "supportsHttpsTrafficOnly": {
-            "type": "bool"
-            
         }
+        
     },
     "variables": {
         "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
