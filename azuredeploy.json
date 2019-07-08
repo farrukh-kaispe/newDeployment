@@ -8,7 +8,7 @@
             
         },
         "storageAccountName": {
-            "type": "string",
+            "type": "string"
             
         },
         "accountType": {

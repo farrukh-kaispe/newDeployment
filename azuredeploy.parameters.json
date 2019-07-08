@@ -16,9 +16,7 @@
         },
         "accessTier": {
             "value": "Hot"
-        },
-        "supportsHttpsTrafficOnly": {
-            "value": false
         }
+        
     }
 }
