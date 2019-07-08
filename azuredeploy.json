@@ -7,7 +7,10 @@
             "defaultValue": "eastasia"
             
         },
-        
+        "storageAccountName": {
+            "type": "string"
+            
+        },
         "accountType": {
             "type": "string",
             "defaultValue": "Standard_RAGRS"
@@ -20,6 +23,7 @@
             "type": "string",
             "defaultValue": "Hot"
         }
+        
     },
     "variables": {
         "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
