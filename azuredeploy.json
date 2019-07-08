@@ -27,19 +27,19 @@
             "apiVersion": "2018-07-01",
             "location": "[parameters('location')]",
             "properties": {
-                "accountType": "Standard_RAGRS",
-                "kind": "StorageV2",
                 "accessTier":"Hot"
                 
 
                 
                
             },
-            "dependsOn": []
-
-             },
-            
-             {
+            "dependsOn": [],
+            "sku": {
+                "name": "Standard_RAGRS"
+            },
+            "kind": "StorageV2"
+        },
+            {
             "name": "[variables('iotHubName')]",
             "type": "Microsoft.Devices/IotHubs",
             "apiVersion": "2018-04-01",
