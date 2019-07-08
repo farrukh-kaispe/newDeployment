@@ -3,30 +3,34 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "location": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "eastasia"
+            
         },
-        "storageAccountName": {
-            "type": "string"
-        },
+        
         "accountType": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "Standard_RAGRS"
         },
         "kind": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "StorageV2"
         },
         "accessTier": {
-            "type": "string"
+            "type": "string",
+            "defaultValue": "Hot"
         },
         "supportsHttpsTrafficOnly": {
-            "type": "bool"
+            "type": "bool",
+            "defaultValue": "true"
         }
     },
     "variables": {
-        //"storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
+        "storageAccountName": "[concat(uniqueString(subscription().subscriptionId), 'storage')]"
     },
     "resources": [
         {
-            "name": "[parameters('storageAccountName')]",
+            "name": "[variables('storageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
             "apiVersion": "2018-07-01",
             "location": "[parameters('location')]",
