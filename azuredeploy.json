@@ -11,7 +11,7 @@
                 "West US",
                 "Southeast Asia"
               ],
-            "defaultValue": "eastasia"
+            "defaultValue": "East Asia"
             
         }
         
@@ -52,7 +52,7 @@
             "name": "[variables('iotHubName')]",
             "type": "Microsoft.Devices/IotHubs",
             "apiVersion": "2018-04-01",
-            "location": "eastasia",
+            "location": "[parameters('location')]",
             "sku": {
                 "name": "F1",
                 "tier": "Free",
@@ -145,7 +145,7 @@
             "type": "Microsoft.Devices/provisioningServices",
             "apiVersion": "2017-11-15",
             "name": "[variables('dpsServiceName')]",
-            "location": "eastasia",
+            "location": "[parameters('location')]",
             "sku": {
                 "name": "S1",
                 "tier": "Standard",
@@ -156,7 +156,7 @@
                     {
                         "name": "[concat(variables('iotHubName'),'.azure-devices.net')]",
                         "connectionString": "[concat('HostName=', reference(variables('iotHubResourceId')).hostName, ';SharedAccessKeyName=', variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
-                        "location": "eastasia"
+                        "location": "[parameters('location')]"
                     }
                 ]
             },
@@ -167,7 +167,7 @@
             "type": "Microsoft.StreamAnalytics/streamingjobs",
             "apiVersion": "2016-03-01",
             "name": "[variables('streamingJob')]",
-            "location": "East Asia",
+            "location": "[parameters('location')]",
             "properties": {
                 "sku": {
                     "name": "Standard"
@@ -179,7 +179,39 @@
                 "dataLocale": "en-US",
                 "compatibilityLevel": "1.1"
             }
+        },
+
+        {
+            "type": "Microsoft.StreamAnalytics/streamingjobs/inputs",
+            "apiVersion": "2016-03-01",
+            "name": "[concat(variables('streamingJob'), '/InputStream')]",
+            "dependsOn": [
+                "[resourceId('Microsoft.StreamAnalytics/streamingjobs', variables('streamingJob'))]"
+            ],
+            "properties": {
+                "type": "Stream",
+                "datasource": {
+                    "type": "Microsoft.Devices/IotHubs",
+                    "properties": {
+                        "iotHubNamespace": "[variables('iotHubName')]",
+                        "sharedAccessPolicyName": "iothubowner",
+                        "endpoint": "messages/events",
+                        "consumerGroupName": "$Default"
+                    }
+                },
+                "compression": {
+                    "type": "None"
+                },
+                "serialization": {
+                    "type": "Json",
+                    "properties": {
+                        "encoding": "UTF8"
+                    }
+                }
+                
+            }
         }
+        
 
         
     ],
