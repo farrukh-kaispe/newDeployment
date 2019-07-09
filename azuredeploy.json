@@ -194,7 +194,8 @@
                     "type": "Microsoft.Devices/IotHubs",
                     "properties": {
                         "iotHubNamespace": "[variables('iotHubName')]",
-                        "sharedAccessPolicyName": "[concat('HostName=', reference(variables('iotHubKeyName'), ';SharedAccessKey=', listkeys(variables('iotHubKeyResource'), '2017-07-01').primaryKey)]",
+                        "sharedAccessPolicyKey": "[listkeys(resourceId('Microsoft.Devices/IotHubs/IotHubKeys',variables('iotHubName'), 'iothubowner'),'2016-02-03').primaryKey]",
+                        "sharedAccessPolicyName": "iothubowner",
                         "endpoint": "messages/events",
                         "consumerGroupName": "$Default"
                     }
