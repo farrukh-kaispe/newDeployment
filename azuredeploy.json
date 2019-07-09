@@ -208,15 +208,7 @@
                     "properties": {
                         "encoding": "UTF8"
                     }
-                },
-                "transformation": {
-                    "name": "Transformation",
-                    "properties": {
-                      "streamingUnits": 3,
-                      "query": "SELECT\r\n    *\r\nINTO\r\n    [Your Output Alias]\r\nFROM\r\n    [Your Input Alias]"
-                    }
-                  }
-                
+                }
             }
         }
         
