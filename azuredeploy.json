@@ -2,9 +2,7 @@
     "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
     "contentVersion": "1.0.0.0",
     "parameters": {
-        "Resource Group Name": {
-            "type": "string"
-        },
+        
         "location": {
             "type": "string",
             "allowedValues": [
@@ -21,6 +19,7 @@
         
     },
     "variables": {
+        
         "storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]",
         "iotHubName": "[concat('iotHub', uniqueString(resourceGroup().id))]",
         "dpsServiceName": "[concat('dpsService', uniqueString(resourceGroup().id))]",
@@ -33,13 +32,7 @@
         
     },
     "resources": [
-        {
-            "type": "Microsoft.Resources/resourceGroups",
-            "apiVersion": "2018-05-01",
-            "location": "[parameters('location')]",
-            "name": "[parameters('Resource Group Name')]",
-            "properties": {}
-        },
+  
         {
             "name": "[variables('storageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
