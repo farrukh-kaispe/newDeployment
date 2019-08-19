@@ -18,6 +18,7 @@
         
     },
     "variables": {
+
         "storageAccountName": "[concat('storage', uniqueString(resourceGroup().id))]",
         "iotHubName": "[concat('iotHub', uniqueString(resourceGroup().id))]",
         "dpsServiceName": "[concat('dpsService', uniqueString(resourceGroup().id))]",
@@ -30,6 +31,13 @@
         
     },
     "resources": [
+
+        {
+            "type": "Microsoft.Resources/resourceGroups",
+            "apiVersion": "2018-05-01",
+            "location": "[parameters('location')]",
+            "properties": {}
+        },
         {
             "name": "[variables('storageAccountName')]",
             "type": "Microsoft.Storage/storageAccounts",
